@@ -1,0 +1,95 @@
+{
+	"credit": "Made with Blockbench",
+	"textureSize": [64, 64],
+	"models": [
+		{
+			"part": "base",
+			"id": "base",
+			"invertAxis": "xy",
+			"translate": [-8, 0, -8],
+			"rotate": [-180, 0, 0],
+			"submodels": [
+				{
+					"id": "group",
+					"invertAxis": "xy",
+					"translate": [-8, 0, 24],
+					"rotate": [-180, 0, 0],
+					"boxes": [
+						{
+							"coordinates": [1, 0, 1, 14, 10, 2],
+							"uvNorth": [56, 43, 42, 33],
+							"uvEast": [2, 43, 0, 33],
+							"uvSouth": [0, 23, 14, 33],
+							"uvWest": [42, 43, 40, 33],
+							"uvUp": [28, 19, 42, 21],
+							"uvDown": [14, 31, 28, 33]
+						},
+						{
+							"coordinates": [1, 0, 13, 14, 10, 2],
+							"uvNorth": [42, 23, 56, 33],
+							"uvEast": [14, 43, 12, 33],
+							"uvSouth": [28, 43, 14, 33],
+							"uvWest": [30, 43, 28, 33],
+							"uvUp": [28, 31, 42, 33],
+							"uvDown": [14, 19, 28, 21]
+						},
+						{
+							"coordinates": [1, 0, 3, 2, 10, 10],
+							"uvEast": [44, 23, 54, 33],
+							"uvWest": [40, 43, 30, 33],
+							"uvUp": [28, 21, 30, 31],
+							"uvDown": [14, 21, 16, 31]
+						},
+						{
+							"coordinates": [13, 0, 3, 2, 10, 10],
+							"uvEast": [12, 43, 2, 33],
+							"uvWest": [44, 23, 54, 33],
+							"uvUp": [40, 21, 42, 31],
+							"uvDown": [26, 21, 28, 31]
+						},
+						{
+							"coordinates": [3, 0, 3, 10, 6, 10],
+							"uvUp": [16, 45, 26, 55],
+							"uvDown": [16, 21, 26, 31]
+						}
+					]
+				}
+			],
+			"animations": [
+				{
+					"this.rx": 0
+				}
+			]
+		},
+		{
+			"part": "lid",
+			"id": "lid",
+			"invertAxis": "xy",
+			"translate": [-8, -9, -7],
+			"rotate": [-180, 0, 0],
+			"boxes": [
+				{"coordinates": [-7, 4, 7, 14, 5, 14], "textureOffset": [0, 0]}
+			],
+			"animations": [
+				{
+					"this.rx": 0
+				}
+			]
+		},
+		{
+			"part": "knob",
+			"id": "knob",
+			"invertAxis": "xy",
+			"translate": [-8, -9, -7],
+			"rotate": [-180, 0, 0],
+			"boxes": [
+				{"coordinates": [-1, 7, 21, 2, 4, 1], "textureOffset": [0, 0]}
+			],
+			"animations": [
+				{
+					"this.rx": 0
+				}
+			]
+		}
+	]
+}

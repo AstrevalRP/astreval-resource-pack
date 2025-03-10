@@ -1,0 +1,51 @@
+{
+	"credit": "Made with Blockbench",
+	"texture": "slime3.png",
+	"textureSize": [64, 32],
+	"models": [
+		{
+			"part": "body",
+			"id": "body",
+			"invertAxis": "xy",
+			"translate": [0, -24, 0],
+			"boxes": [
+				{"coordinates": [-3, 1, -3, 6, 6, 6], "textureOffset": [0, 16]},
+				{
+					"coordinates": [-1, 3, -3.5, 2, 3, 1],
+					"uvNorth": [8, 23, 10, 26],
+					"uvEast": [8, 23, 9, 26],
+					"uvWest": [9, 23, 10, 26],
+					"uvUp": [10, 24, 8, 23],
+					"uvDown": [10, 25, 8, 26]
+				}
+			]
+		},
+		{
+			"part": "right_eye",
+			"id": "right_eye",
+			"invertAxis": "xy",
+			"translate": [0, -24, 0],
+			"boxes": [
+				{"coordinates": [-3.3, 4, -3.5, 2, 2, 2], "textureOffset": [32, 0]}
+			]
+		},
+		{
+			"part": "left_eye",
+			"id": "left_eye",
+			"invertAxis": "xy",
+			"translate": [0, -24, 0],
+			"boxes": [
+				{"coordinates": [1.3, 4, -3.5, 2, 2, 2], "textureOffset": [32, 4]}
+			]
+		},
+		{
+			"part": "mouth",
+			"id": "mouth",
+			"invertAxis": "xy",
+			"translate": [0, -24, 0],
+			"boxes": [
+				{"coordinates": [0, 2, -3.5, 1, 1, 1], "textureOffset": [32, 8]}
+			]
+		}
+	]
+}
