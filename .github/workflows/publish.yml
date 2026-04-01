@@ -1,0 +1,50 @@
+# Publication sur GitHub Releases et Modrinth lors d’un push de tag (ex. v1.0.0).
+# Secrets requis : MODRINTH_PROJECT_ID, MODRINTH_TOKEN (voir README du dépôt si documenté).
+name: Publish resource pack
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+env:
+  ZIP_BASENAME: astreval-ressourcespack
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Lire minecraft_version (Modrinth)
+        run: |
+          MC="$(grep '^minecraft_version=' version.properties | head -1 | cut -d= -f2-)"
+          echo "MINECRAFT_GAME_VERSION=${MC}" >> "$GITHUB_ENV"
+
+      # Liste blanche : pas de scripts/, .github/, version.properties, etc. dans le pack joueur.
+      - name: Build resource pack zip
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          echo "PACK_VERSION=${VERSION}" >> "$GITHUB_ENV"
+          mkdir -p dist
+          zip -r "dist/${ZIP_BASENAME}-${VERSION}.zip" pack.mcmeta assets README.txt changelog.txt
+
+      - name: Publish (Modrinth + GitHub Release)
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          modrinth-id: ${{ secrets.MODRINTH_PROJECT_ID }}
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-tag: ${{ github.ref_name }}
+          name: Astreval Resource Pack ${{ env.PACK_VERSION }}
+          version: ${{ env.PACK_VERSION }}
+          version-type: release
+          loaders: minecraft
+          game-versions: ${{ env.MINECRAFT_GAME_VERSION }}
+          changelog-file: changelog.txt
+          files: |
+            dist/*.zip
